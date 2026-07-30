@@ -1,0 +1,33 @@
+{
+  "name": "employee-portal",
+  "version": "1.0.0",
+  "description": "SAP CAP employee portal service (Employee / Request / Approval)",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@sap/cds": "^8",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1"
+  },
+  "overrides": {
+    "better-sqlite3": "12.11.1"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": "db.sqlite"
+        }
+      }
+    }
+  }
+}

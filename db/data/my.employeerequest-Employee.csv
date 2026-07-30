@@ -1,0 +1,5 @@
+EmployeeID,Name,Email,Role
+E001,Ada Lovelace,ada@tmcltd.ai,Manager
+E002,Alan Turing,alan@tmcltd.ai,Employee
+E003,Grace Hopper,grace@tmcltd.ai,Manager
+E004,Katherine Johnson,katherine@tmcltd.ai,Employee

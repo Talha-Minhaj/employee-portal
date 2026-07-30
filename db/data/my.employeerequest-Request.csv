@@ -1,0 +1,5 @@
+RequestID,Employee_EmployeeID,Type,Description,StartDate,EndDate,Amount,Status
+10000000-0000-0000-0000-000000000001,E002,Leave,Annual leave,2026-08-10,2026-08-15,,Pending
+10000000-0000-0000-0000-000000000002,E002,Expense,Conference travel reimbursement,2026-08-01,2026-08-01,450.00,Pending
+10000000-0000-0000-0000-000000000003,E004,Travel,Client site visit,2026-09-05,2026-09-07,1200.00,Approved
+10000000-0000-0000-0000-000000000004,E004,Expense,Office supplies restock,2026-07-01,2026-07-01,75.50,Rejected
