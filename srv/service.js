@@ -51,7 +51,22 @@ module.exports = cds.service.impl(function () {
   })
 
   // ---------------------------------------------------------------------------
-  // ON approve / reject (bound actions): set the decision status
+  // AFTER READ (Request): derive UI criticality from Status
+  //   Approved -> 3 (green / positive)
+  //   Pending  -> 2 (orange / critical)
+  //   Rejected -> 1 (red / negative)
+  // ---------------------------------------------------------------------------
+  this.after('READ', Requests, (data) => {
+    for (const row of Array.isArray(data) ? data : [data]) {
+      if (!row) continue
+      row.Criticality = row.Status === 'Approved' ? 3
+                      : row.Status === 'Rejected' ? 1
+                      : 2
+    }
+  })
+
+  // ---------------------------------------------------------------------------
+  // ON approve / decline (bound actions): set the decision status
   // ---------------------------------------------------------------------------
   this.on('approve', Requests, (req) => decide(req, 'Approved'))
   this.on('decline', Requests, (req) => decide(req, 'Rejected'))

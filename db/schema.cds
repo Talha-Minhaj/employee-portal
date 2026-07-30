@@ -28,3 +28,9 @@ entity Approval {
   Comment        : String;
   Timestamp      : Timestamp;
 }
+
+// Code list backing the fixed-value dropdown for Request.Type
+entity RequestTypes {
+  key code : String(20);
+      name : String(60);
+}

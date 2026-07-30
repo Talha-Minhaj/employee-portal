@@ -20,7 +20,8 @@ annotate EmployeeService.Requests with @(
     { $Type: 'UI.DataField', Value: Description, Label: 'Description',  ![@UI.Importance]: #High },
     { $Type: 'UI.DataField', Value: StartDate,   Label: 'Start Date',  ![@UI.Importance]: #High },
     { $Type: 'UI.DataField', Value: Amount,      Label: 'Amount',      ![@UI.Importance]: #High },
-    { $Type: 'UI.DataField', Value: Status,      Label: 'Status',      ![@UI.Importance]: #High }
+    // Status colorized via the derived Criticality field (1=red, 2=orange, 3=green)
+    { $Type: 'UI.DataField', Value: Status,      Label: 'Status',      Criticality: Criticality, ![@UI.Importance]: #High }
   ],
 
   // ── Object Page header action buttons (from UI.Identification) ─────────────
@@ -40,7 +41,8 @@ annotate EmployeeService.Requests with @(
       { $Type: 'UI.DataField', Value: StartDate,           Label: 'Start Date' },
       { $Type: 'UI.DataField', Value: EndDate,             Label: 'End Date' },
       { $Type: 'UI.DataField', Value: Amount,              Label: 'Amount' },
-      { $Type: 'UI.DataField', Value: Status,              Label: 'Status' }
+      // Status colorized via the derived Criticality field
+      { $Type: 'UI.DataField', Value: Status,              Label: 'Status', Criticality: Criticality }
     ]
   },
 
@@ -53,3 +55,18 @@ annotate EmployeeService.Requests with @(
     }
   ]
 );
+
+// ── Value help: Type is a fixed-value dropdown (Leave / Expense / Travel) ─────
+annotate EmployeeService.Requests with {
+  Type @(
+    Common.ValueListWithFixedValues,
+    Common.ValueList: {
+      $Type          : 'Common.ValueListType',
+      CollectionPath : 'RequestTypes',
+      Parameters     : [
+        { $Type: 'Common.ValueListParameterInOut',       LocalDataProperty: Type, ValueListProperty: 'code' },
+        { $Type: 'Common.ValueListParameterDisplayOnly',                          ValueListProperty: 'name' }
+      ]
+    }
+  );
+};
