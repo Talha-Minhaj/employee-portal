@@ -27,6 +27,21 @@
         "credentials": {
           "url": "db.sqlite"
         }
+      },
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "alice": {
+            "password": "alice",
+            "roles": []
+          },
+          "bob": {
+            "password": "bob",
+            "roles": [
+              "Manager"
+            ]
+          }
+        }
       }
     }
   }

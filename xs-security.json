@@ -1,0 +1,31 @@
+{
+  "xsappname": "employee-portal",
+  "tenant-mode": "dedicated",
+  "description": "Security descriptor for the Employee Portal CAP service",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Manager",
+      "description": "Permission to approve or decline requests"
+    }
+  ],
+  "attributes": [],
+  "role-templates": [
+    {
+      "name": "Manager",
+      "description": "Manager - may approve or decline employee requests",
+      "scope-references": [
+        "$XSAPPNAME.Manager"
+      ],
+      "attribute-references": []
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "EmployeePortalManager",
+      "description": "Employee Portal Managers",
+      "role-template-references": [
+        "$XSAPPNAME.Manager"
+      ]
+    }
+  ]
+}
