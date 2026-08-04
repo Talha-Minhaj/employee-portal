@@ -1,6 +1,6 @@
 _schema-version: 3.3.0
 ID: employee-portal
-version: 1.0.0
+version: 1.0.2
 description: "SAP CAP employee portal service (Employee &#x2F; Request &#x2F; Approval)"
 parameters:
   enable-parallel-deployments: true

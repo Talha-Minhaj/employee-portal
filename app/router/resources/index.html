@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Requests</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        /* UI5 strips the data-sap-ui-component attribute at boot, so the
+           wrapper needs a real id; force the full chain to viewport height. */
+        #appContainer,
+        .sapUiComponentContainer,
+        [id$="uiarea"],
+        .sapUiView,
+        .sapMNav {
+            height: 100%;
+        }
+    </style>
+    <script
+        id="sap-ui-bootstrap"
+        src="https://ui5.sap.com/resources/sap-ui-core.js"
+        data-sap-ui-theme="sap_horizon"
+        data-sap-ui-resource-roots='{"employeeportal.requests": "./"}'
+        data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
+        data-sap-ui-compat-version="edge"
+        data-sap-ui-async="true"
+        data-sap-ui-frame-options="trusted">
+    </script>
+</head>
+<body class="sapUiBody" id="content">
+    <div
+        id="appContainer"
+        data-sap-ui-component
+        data-name="employeeportal.requests"
+        data-id="container"
+        data-settings='{"id":"employeeportal.requests"}'
+        data-height="100%">
+    </div>
+</body>
+</html>

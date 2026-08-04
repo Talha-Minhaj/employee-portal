@@ -2,6 +2,11 @@
   "xsappname": "employee-portal",
   "tenant-mode": "dedicated",
   "description": "Security descriptor for the Employee Portal CAP service",
+  "oauth2-configuration": {
+    "redirect-uris": [
+      "https://*.cfapps.us10-003.hana.ondemand.com/**"
+    ]
+  },
   "scopes": [
     {
       "name": "$XSAPPNAME.Manager",
