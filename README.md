@@ -8,6 +8,9 @@
 ![Security](https://img.shields.io/badge/Security-XSUAA-C4342B)
 ![Deployment](https://img.shields.io/badge/Deploy-Cloud%20Foundry%20MTA-0A6ED1)
 
+> **🌐 Live deployment:** <https://ecd75d70trial-dev-employee-portal.cfapps.us10-003.hana.ondemand.com/index.html>
+> Running on SAP BTP Cloud Foundry (trial) — login via SAP BTP credentials; approve/decline requires the `EmployeePortalManager` role collection. *Trial instances auto-stop when idle, so the link may be temporarily unavailable.*
+
 ---
 
 ## 1. Project Overview
@@ -167,11 +170,12 @@ employee-portal/
 The [`mta.yaml`](mta.yaml) blueprint provisions four artifacts: the **CAP service** (`nodejs`), the **HANA HDI deployer** (`hdb`), the **App Router** (`approuter.nodejs`), and the bound **HANA** and **XSUAA** service instances.
 
 ```bash
-# Build the multi-target archive
+# Build the multi-target archive (bump `version:` in mta.yaml first —
+# same-version deploys may skip uploading unchanged-looking modules)
 npx mbt build
 
 # Deploy to a Cloud Foundry space (requires HANA Cloud & XSUAA entitlements)
-cf deploy mta_archives/employee-portal_1.0.0.mtar
+cf deploy mta_archives/employee-portal_<version>.mtar
 ```
 
 ## License
